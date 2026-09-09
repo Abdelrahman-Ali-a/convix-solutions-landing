@@ -1,30 +1,38 @@
-# Convix Solutions — landing page
+# Corvix Solutions — landing page
 
 Static site (no build step): plain HTML/CSS/JS implementing the
-`Convix Landing v2` design from Claude Design.
+`Corvix Landing v2` design from Claude Design.
 
 ```
 index.html
 css/style.css
 js/main.js
+img/               ← logo + favicons, generated from the source artwork in the repo root
+build.sh           ← assembles dist/ (the only thing that gets published)
+_headers           ← security + cache headers
+wrangler.jsonc     ← Cloudflare Workers config
 design-source/     ← original .dc.html design bundle + chat transcripts (reference only)
 ```
 
-## Deploy to Cloudflare Pages (free plan)
+## Deploy
 
-1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** →
-   **Connect to Git** → pick this repo.
-2. Build settings:
-   - **Framework preset:** None
-   - **Build command:** *(leave empty)*
-   - **Build output directory:** `/` (repo root)
-3. Deploy. Cloudflare gives you a `*.pages.dev` URL immediately.
-4. To use your connected domain: Pages project → **Custom domains** →
-   **Set up a custom domain** → enter the domain/subdomain. Since it's
-   already on Cloudflare, the DNS record is added for you — no manual
-   CNAME needed.
+Live at **https://corvix-solutions.com** (and `www.`), served by a Cloudflare
+Worker with static assets on the free plan.
 
-Every push to the connected branch redeploys automatically.
+```sh
+./build.sh && npx wrangler deploy
+```
+
+`build.sh` copies an explicit list of paths into `dist/`, and `wrangler.jsonc`
+publishes only that directory. This is deliberate: pointing the deploy at the
+repo root would publish `design-source/` (the design bundle and chat
+transcripts) and this README at public URLs. **If you add a new top-level
+folder to the site, add it to the `cp` line in `build.sh` or it won't ship.**
+
+`workers_dev` and `preview_urls` are both `false`, so the site answers only on
+the custom domain — there are no `*.workers.dev` addresses serving it.
+
+First-time setup on a new machine needs `npx wrangler login`.
 
 ## Notes on what's implemented
 
@@ -36,10 +44,14 @@ Every push to the connected branch redeploys automatically.
   All screen data is structural placeholder content (ids, names, statuses)
   — no invented revenue or performance figures, matching the "no AI slop"
   direction from the design chat.
-- **Contact form** (`#contact`) — no backend. Submitting builds a
-  `mailto:hello@convixsolutions.com` link (prefilled subject/body from the
-  fields) and opens the visitor's email client. Swap in a real endpoint
-  later by replacing the `submit` handler in `js/main.js`.
+- **Contact form** (`#contact`) — no backend. Submitting builds a `mailto:`
+  link (prefilled subject/body from the fields) and opens the visitor's email
+  client. The destination address is deliberately not shown as visible text on
+  the page, but note it is still present in the HTML/JS source and therefore
+  harvestable — hiding it properly requires a real endpoint. Swap one in by
+  replacing the `submit` handler in `js/main.js`; that would also fix the case
+  where a visitor on webmail has no mail client configured and the button
+  appears to do nothing.
 - **"Selected work" images** — the prototype left these as empty
   drop-in slots. Real stock photos couldn't be fetched from the sandboxed
   build session (outbound access to unsplash.com was blocked there), so
