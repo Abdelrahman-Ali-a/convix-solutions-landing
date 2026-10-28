@@ -3,7 +3,7 @@
 
   /* ---------------- theme ---------------- */
   var root = document.documentElement;
-  var THEME_KEY = "corvix-theme";
+  var THEME_KEY = "qcore-theme";
   var themeBtn = document.getElementById("themeToggle");
 
   function storedTheme() {

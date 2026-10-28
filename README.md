@@ -1,36 +1,43 @@
-# Corvix Solutions — landing page
+# Qcore Solutions — landing page
 
 Static site (no build step): plain HTML/CSS/JS implementing the
-`Corvix Landing v2` design from Claude Design.
+`Qcore Landing v2` design from Claude Design.
 
 ```
 index.html
 css/style.css
 js/main.js
 img/               ← logo + favicons, generated from the source artwork in the repo root
-build.sh           ← assembles dist/ (the only thing that gets published)
+build.sh           ← assembles dist/ for the older Worker setup
+build-pages.sh     ← assembles pages-dist/ from variants/b-refined/ (the live site)
 _headers           ← security + cache headers
-wrangler.jsonc     ← Cloudflare Workers config
+wrangler.jsonc     ← Cloudflare Workers config (no routes; the domain is on Pages)
 design-source/     ← original .dc.html design bundle + chat transcripts (reference only)
 ```
 
 ## Deploy
 
-Live at **https://corvix-solutions.com** (and `www.`), served by a Cloudflare
-Worker with static assets on the free plan.
+The public site is `variants/b-refined/`, served by the Cloudflare Pages
+project **qcore-solutions** (free plan) at https://qcore-solutions.pages.dev,
+with `qcore-solutions.com` and `www.` attached as custom domains.
 
 ```sh
-./build.sh && npx wrangler deploy
+sh build-pages.sh
+# then, from a folder with no wrangler.jsonc above it:
+npx wrangler pages deploy <path-to>/pages-dist --project-name qcore-solutions --branch main
 ```
 
-`build.sh` copies an explicit list of paths into `dist/`, and `wrangler.jsonc`
-publishes only that directory. This is deliberate: pointing the deploy at the
-repo root would publish `design-source/` (the design bundle and chat
-transcripts) and this README at public URLs. **If you add a new top-level
-folder to the site, add it to the `cp` line in `build.sh` or it won't ship.**
+`build-pages.sh` assembles `pages-dist/`: it copies the variant plus the logo,
+favicons, client logos and language script it links to outside its folder,
+rewrites those links, and leaves working files (DESIGN.md, README, the image
+prompt and the PNG master) out of the public upload.
 
-`workers_dev` and `preview_urls` are both `false`, so the site answers only on
-the custom domain — there are no `*.workers.dev` addresses serving it.
+**Run the Pages deploy outside this folder.** Wrangler walks up to
+`wrangler.jsonc`, a Worker config, and acts on it instead: run here, it once
+created a stray Worker that served the old `dist/` site.
+
+The older Worker setup (`./build.sh && npx wrangler deploy`, publishing
+`dist/`) no longer claims any domain; `wrangler.jsonc` declares no routes.
 
 First-time setup on a new machine needs `npx wrangler login`.
 

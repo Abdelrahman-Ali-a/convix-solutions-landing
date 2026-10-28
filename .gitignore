@@ -6,3 +6,5 @@ dist/
 !.dev.vars.example
 .env*
 !.env.example
+pages-dist/
+.impeccable/hook.cache.json

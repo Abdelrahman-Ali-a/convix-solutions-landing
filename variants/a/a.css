@@ -1,0 +1,133 @@
+/* Variant A — the live site's world (css/style.css) carried over unchanged;
+   this file only adds the pieces the new content needs: the team card,
+   project list, client strip, contact actions, and Arabic / RTL support. */
+
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:6px}
+html{scrollbar-color:var(--muted) var(--bg)}
+a{text-underline-offset:.2em}
+
+/* ---------- Arabic ---------- */
+:root[lang="ar"] body,
+:root[lang="ar"] input,
+:root[lang="ar"] textarea{font-family:'IBM Plex Sans Arabic','Archivo',system-ui,sans-serif}
+:root[lang="ar"] .hero h1,
+:root[lang="ar"] .section h2{letter-spacing:0;line-height:1.3}
+:root[lang="ar"] .lede,
+:root[lang="ar"] .section-sub,
+:root[lang="ar"] p{line-height:1.8}
+:root[lang="ar"] .method-label,
+:root[lang="ar"] .method-typical,
+:root[lang="ar"] .theme-toggle,
+:root[lang="ar"] .contact-kind,
+:root[lang="ar"] .crew-cert{font-family:'IBM Plex Sans Arabic','IBM Plex Mono',monospace;letter-spacing:0}
+.lang-toggle[lang="ar"]{font-family:'IBM Plex Sans Arabic',sans-serif;font-size:14px}
+/* the base sheet parks the skip link at left:-9999px, which scrolls in RTL */
+.skip-link{left:0;transform:translateY(-120%);transition:transform .15s}
+.skip-link:focus{transform:none}
+:root[dir="rtl"] .skip-link{left:auto;right:0;border-radius:0 0 0 8px}
+
+/* ---------- buttons with icons ---------- */
+.btn-icon{gap:10px}
+.btn-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.btn-primary:focus-visible,.btn-secondary:focus-visible{outline-offset:4px}
+
+/* ---------- hero: the team card ---------- */
+.crew-card{
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.crew-head{padding:20px 22px 16px;border-bottom:1px solid var(--line);background:var(--sunk)}
+.crew-title{margin:0;font-size:18px;font-weight:700;letter-spacing:-.015em}
+.crew-note{display:block;margin-top:4px;font-size:13.5px;color:var(--muted)}
+.crew-list{list-style:none;margin:0;padding:0}
+.crew-list li{
+  display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:14px;row-gap:6px;align-items:center;
+  padding:16px 22px;border-bottom:1px solid var(--line);
+}
+.crew-list li:last-child{border-bottom:0}
+.crew-initials{
+  grid-row:span 2;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  background:var(--accent-soft);color:var(--accent-ink);font:500 12.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;
+}
+.crew-who{display:flex;flex-direction:column;min-width:0}
+.crew-who strong{font-size:15.5px;font-weight:600;letter-spacing:-.012em}
+.crew-who span{font-size:13.5px;color:var(--muted)}
+.crew-cert{grid-column:2;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.04em;color:var(--accent-ink)}
+
+/* ---------- capabilities ---------- */
+.capability-card h3{margin-top:0}
+.capability-card.is-core{border-color:var(--accent);background:var(--accent-soft)}
+.areas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-top:22px}
+.areas-label{font-size:14.5px;color:var(--muted)}
+.areas .chip-row{margin-top:0;list-style:none;padding:0}
+
+/* ---------- method ---------- */
+.method-grid-5{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.method-typical{text-align:end}
+.after-row{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:30px;padding-top:22px;
+  border-top:1px solid var(--inv-line);
+}
+.after-row ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.after-row li{
+  border:1px solid var(--inv-line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--inv-ink);
+}
+
+/* ---------- projects ---------- */
+.project-list{
+  list-style:none;margin:28px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  border-top:1px solid var(--line);
+}
+.project-list li{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-content:start;
+  padding:22px 24px 24px 0;border-bottom:1px solid var(--line);
+}
+:root[dir="rtl"] .project-list li{padding:22px 0 24px 24px}
+.project-list h3{font-size:17.5px;font-weight:600;letter-spacing:-.014em}
+.project-region{
+  align-self:start;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent-ink);background:var(--accent-soft);padding:4px 9px;border-radius:999px;
+}
+:root[lang="ar"] .project-region{font-family:'IBM Plex Sans Arabic',sans-serif;letter-spacing:0;font-size:12.5px}
+.project-list p{grid-column:1 / -1;margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--muted)}
+
+.client-strip{margin:36px 0 0}
+.client-logos{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(8,minmax(0,1fr));
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;
+}
+.client-logos li{display:grid;place-items:center;padding:18px 14px;min-height:88px;border-inline-end:1px solid rgba(22,24,29,.08)}
+.client-logos li:last-child{border-inline-end:0}
+.client-logos img{max-height:44px;max-width:100%;width:auto;height:auto;filter:grayscale(1);opacity:.8;transition:filter .25s,opacity .25s}
+.client-logos img.is-tall{max-height:62px}
+.client-logos li:hover img{filter:none;opacity:1}
+.client-strip figcaption{margin-top:12px;font-size:13px;line-height:1.55;color:var(--muted);max-width:90ch}
+
+/* ---------- contact ---------- */
+.contact-actions{display:grid;gap:12px}
+.contact-action{
+  display:flex;flex-direction:column;gap:4px;padding:22px 24px;border-radius:14px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  transition:border-color .15s,transform .15s;
+}
+.contact-action:hover{text-decoration:none;border-color:var(--accent);transform:translateY(-1px)}
+.contact-action.is-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.contact-action.is-primary .contact-kind,.contact-action.is-primary .contact-hint{color:#fff}
+.contact-kind{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.contact-value{font-size:clamp(19px,2vw,24px);font-weight:700;letter-spacing:-.02em;overflow-wrap:anywhere}
+:root[dir="rtl"] .contact-value{text-align:right}
+.contact-hint{font-size:14px;color:var(--muted)}
+
+@media (max-width:860px){
+  .client-logos{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .client-logos li:nth-child(4){border-inline-end:0}
+  .client-logos li:nth-child(-n+4){border-bottom:1px solid rgba(22,24,29,.08)}
+  .project-list li{padding-inline-end:0}
+  .header-actions .btn-sm{display:none}
+}
+@media (max-width:480px){
+  .hero-ctas .btn{flex:1 1 100%}
+}

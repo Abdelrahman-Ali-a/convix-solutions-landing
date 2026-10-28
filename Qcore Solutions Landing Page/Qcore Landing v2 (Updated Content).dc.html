@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><script src="./image-slot.js"></script><style>
+body{margin:0;font-family:'Archivo',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;
+--bg:#fbfaf8;--surface:#ffffff;--sunk:#f4f2ee;--ink:#16181d;--muted:#575e6c;--line:rgba(22,24,29,.13);--accent:#1f4fd8;--accent-ink:#1f4fd8;--accent-soft:rgba(31,79,216,.07);--inv-bg:#16181d;--inv-ink:#ffffff;--inv-muted:rgba(255,255,255,.66);--inv-line:rgba(255,255,255,.2);--hatch:rgba(22,24,29,.09);--shadow:0 18px 44px -26px rgba(22,24,29,.34)}
+body[data-theme="dark"]{--bg:#0e1014;--surface:#171a20;--sunk:#12151a;--ink:#eceef2;--muted:#9aa2b1;--line:rgba(255,255,255,.13);--accent:#3b6bf5;--accent-ink:#8fabff;--accent-soft:rgba(94,133,255,.13);--inv-bg:#1b1f27;--inv-ink:#f1f3f7;--inv-muted:rgba(255,255,255,.68);--inv-line:rgba(255,255,255,.16);--hatch:rgba(255,255,255,.1);--shadow:0 18px 44px -26px rgba(0,0,0,.8)}
+a{color:var(--accent-ink);text-decoration:none}a:hover{text-decoration:underline}
+input,textarea,select,button{font-family:inherit}
+@media(max-width:860px){
+[data-nav]{display:none}
+[data-split]{grid-template-columns:minmax(0,1fr)!important;gap:32px!important}
+[data-mod]{grid-template-columns:minmax(0,1fr)!important}
+[data-modlist]{flex-direction:row!important;overflow-x:auto;border-right:0!important;padding-right:0!important;padding-bottom:12px!important;border-bottom:1px solid var(--line)}
+[data-modlist]>div{flex:0 0 auto}
+[data-modnote]{display:none}
+[data-moddetail]{padding-left:0!important;padding-top:24px!important}
+[data-faq]{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+[data-hd]{flex-wrap:wrap;gap:14px!important}
+[data-inline]{flex-direction:column!important;align-items:flex-start!important;gap:8px!important}
+[data-inline]>[data-rule]{display:none}
+}
+</style></helmet>
+
+<div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,44px)">
+
+  <header data-hd style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)">
+    <div style="display:flex;align-items:center;gap:10px"><div style="width:22px;height:22px;border-radius:6px;background:var(--accent)"></div><span style="font-weight:700;font-size:16.5px;letter-spacing:-.022em">Qcore Solutions</span></div>
+    <nav data-nav style="display:flex;gap:24px;font-size:14.5px;color:var(--muted)"><a href="#capabilities" style="color:inherit">Services</a><a href="#modules" style="color:inherit">ERPNext</a><a href="#method" style="color:inherit">How we work</a><a href="#work" style="color:inherit">Work</a><a href="#contact" style="color:inherit">Contact</a></nav>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button onClick="{{ toggleTheme }}" aria-label="Toggle dark mode" style="display:flex;align-items:center;gap:7px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:9px 12px;font:500 12px 'IBM Plex Mono',monospace;cursor:pointer;min-height:40px" style-hover="color:var(--ink)">{{ themeLabel }}</button>
+      <a href="#contact" style="background:var(--accent);color:#fff;font-weight:600;font-size:14.5px;padding:11px 17px;border-radius:8px;text-decoration:none;min-height:40px;display:flex;align-items:center">Book a call</a>
+    </div>
+  </header>
+
+  <section data-split style="display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,56px);align-items:center;padding:clamp(48px,7vw,76px) 0">
+    <div>
+      <h1 style="margin:0;font-weight:700;font-size:clamp(34px,5.2vw,54px);line-height:1.04;letter-spacing:-.035em;text-wrap:pretty">Software that fits how your business already works.</h1>
+      <p style="margin:20px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6;color:var(--muted);max-width:52ch;text-wrap:pretty">We implement ERPNext, build the web and mobile apps around it, and connect it to the systems you already run — configured to your process, not the other way round.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <a href="#contact" style="background:var(--accent);color:#fff;font-weight:600;font-size:15.5px;padding:15px 24px;border-radius:9px;text-decoration:none">Book a free assessment</a>
+        <a href="#method" style="border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:15.5px;padding:15px 24px;border-radius:9px;text-decoration:none">See how we work</a>
+      </div>
+      <div data-inline style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:26px;font-size:14px;color:var(--muted)"><span>Fixed-scope proposals</span><span data-rule style="width:1px;height:12px;background:var(--line)"></span><span>Live in 10–14 weeks</span><span data-rule style="width:1px;height:12px;background:var(--line)"></span><span>Your data, your server</span></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)">
+      <div style="display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--sunk)"><div style="width:9px;height:9px;border-radius:50%;background:var(--line)"></div><div style="width:9px;height:9px;border-radius:50%;background:var(--line)"></div><div style="width:9px;height:9px;border-radius:50%;background:var(--line)"></div><span style="margin-left:8px;font:400 11.5px 'IBM Plex Mono',monospace;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">erp.yourcompany.com</span></div>
+      <div style="display:grid;grid-template-columns:118px minmax(0,1fr);aspect-ratio:16/10;min-height:240px;background:var(--surface);overflow:hidden">
+        <div style="background:var(--sunk);border-right:1px solid var(--line);padding:11px 9px;overflow:hidden">
+          <div style="display:flex;align-items:center;gap:6px;padding:0 5px 11px"><div style="width:14px;height:14px;border-radius:4px;background:var(--accent)"></div><span style="font-size:11px;font-weight:700;letter-spacing:-.02em">ERPNext</span></div>
+          <sc-for list="{{ heroNav }}" as="n" hint-placeholder-count="8">
+            <sc-if value="{{ n.on }}"><div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;margin-bottom:1px"><div style="width:4px;height:4px;border-radius:50%;background:#fff"></div>{{ n.label }}</div></sc-if>
+            <sc-if value="{{ n.off }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;color:var(--muted);font-size:11px;margin-bottom:1px"><div style="width:4px;height:4px;border-radius:50%;background:var(--line)"></div>{{ n.label }}</div></sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <div style="display:flex;align-items:center;gap:7px;padding:9px 12px;border-bottom:1px solid var(--line)"><span style="font-size:12px;font-weight:700;letter-spacing:-.02em">Sales Invoice</span><span style="font:500 9px 'IBM Plex Mono',monospace;background:var(--accent-soft);color:var(--accent-ink);padding:2px 6px;border-radius:4px;letter-spacing:.06em">LIST</span></div>
+          <div style="display:grid;grid-template-columns:1.1fr 1.5fr .8fr .9fr;background:var(--sunk);border-bottom:1px solid var(--line)"><div style="padding:6px 10px;font:500 8.5px 'IBM Plex Mono',monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)">Invoice</div><div style="padding:6px 10px;font:500 8.5px 'IBM Plex Mono',monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)">Customer</div><div style="padding:6px 10px;font:500 8.5px 'IBM Plex Mono',monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)">Due</div><div style="padding:6px 10px;font:500 8.5px 'IBM Plex Mono',monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)">Status</div></div>
+          <sc-for list="{{ heroRows }}" as="r" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:1.1fr 1.5fr .8fr .9fr;border-bottom:1px solid var(--line)"><div style="padding:8px 10px;font-size:10.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.a }}</div><div style="padding:8px 10px;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.b }}</div><div style="padding:8px 10px;font-size:10.5px;color:var(--muted);white-space:nowrap">{{ r.c }}</div><div style="padding:8px 10px"><span style="font:500 9px 'IBM Plex Mono',monospace;color:var(--accent-ink);background:var(--accent-soft);padding:2px 6px;border-radius:999px;white-space:nowrap">{{ r.d }}</span></div></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" style="padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line)">
+    <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,34px);line-height:1.13;letter-spacing:-.028em;max-width:26ch;text-wrap:pretty">What we build</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px">
+      <div style="border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface)"><div style="font:500 11.5px 'IBM Plex Mono',monospace;color:var(--accent-ink)">01</div><h3 style="margin:12px 0 8px;font-size:18px;font-weight:600;letter-spacing:-.012em">ERPNext implementation</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">Fit-gap study, masters, workflows, migration, UAT and go-live — one accountable lead against a written scope.</p></div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface)"><div style="font:500 11.5px 'IBM Plex Mono',monospace;color:var(--accent-ink)">02</div><h3 style="margin:12px 0 8px;font-size:18px;font-weight:600;letter-spacing:-.012em">Custom web apps</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">Portals, internal tools and dashboards on Frappe or React, sitting next to your ERP rather than against it.</p></div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface)"><div style="font:500 11.5px 'IBM Plex Mono',monospace;color:var(--accent-ink)">03</div><h3 style="margin:12px 0 8px;font-size:18px;font-weight:600;letter-spacing:-.012em">Mobile apps</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">Field-force, warehouse and approval apps for Android and iOS, on the same live data as head office.</p></div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface)"><div style="font:500 11.5px 'IBM Plex Mono',monospace;color:var(--accent-ink)">04</div><h3 style="margin:12px 0 8px;font-size:18px;font-weight:600;letter-spacing:-.012em">Integrations &amp; APIs</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">E-invoicing, payments, logistics partners, shop-floor machines and the legacy systems you can’t retire yet.</p></div>
+    </div>
+  </section>
+
+  <section id="modules" style="padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line)">
+    <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,34px);line-height:1.13;letter-spacing:-.028em;max-width:30ch;text-wrap:pretty">Start with the modules that hurt today</h2>
+    <p style="margin:14px 0 0;font-size:16px;line-height:1.6;color:var(--muted);max-width:60ch;text-wrap:pretty">Everything else can be added later without a re-implementation.</p>
+    <div data-mod style="display:grid;grid-template-columns:270px minmax(0,1fr);margin-top:30px;align-items:start">
+      <div data-modlist style="display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--line);padding-right:22px">
+        <sc-for list="{{ modules }}" as="m" hint-placeholder-count="6">
+          <div onClick="{{ m.select }}" style="cursor:pointer">
+            <sc-if value="{{ m.selected }}"><div style="display:flex;align-items:center;gap:11px;padding:13px 14px;border-radius:9px;background:var(--accent);color:#fff;min-height:44px;box-sizing:border-box;white-space:nowrap"><span style="font:500 11.5px 'IBM Plex Mono',monospace;opacity:.75">{{ m.num }}</span><span style="font-size:15.5px;font-weight:600;letter-spacing:-.012em">{{ m.name }}</span></div></sc-if>
+            <sc-if value="{{ m.unselected }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:11px;padding:13px 14px;border-radius:9px;color:var(--ink);min-height:44px;box-sizing:border-box;white-space:nowrap" style-hover="background:var(--accent-soft)"><span style="font:500 11.5px 'IBM Plex Mono',monospace;color:var(--muted)">{{ m.num }}</span><span style="font-size:15.5px;font-weight:600;letter-spacing:-.012em">{{ m.name }}</span></div></sc-if>
+          </div>
+        </sc-for>
+        <div data-modnote style="margin-top:18px;padding:16px;border-radius:12px;background:var(--accent-soft);font-size:13.5px;line-height:1.55;color:var(--muted)">Most clients begin with accounting and inventory, then add manufacturing around month three.</div>
+      </div>
+      <div data-moddetail style="padding-left:30px">
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px"><h3 style="margin:0;font-size:clamp(21px,2.4vw,26px);font-weight:700;letter-spacing:-.025em">{{ active.name }}</h3><span style="font:500 11.5px 'IBM Plex Mono',monospace;color:var(--accent-ink);text-transform:uppercase;letter-spacing:.06em">{{ active.tag }}</span></div>
+        <p style="margin:12px 0 0;font-size:16px;line-height:1.6;color:var(--muted);max-width:62ch;text-wrap:pretty">{{ active.blurb }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+          <sc-for list="{{ active.chips }}" as="c" hint-placeholder-count="4">
+            <span style="border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13px;color:var(--muted);background:var(--surface)">{{ c }}</span>
+          </sc-for>
+        </div>
+        <div style="margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)">
+          <div style="display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--sunk)"><div style="width:9px;height:9px;border-radius:50%;background:var(--line)"></div><div style="width:9px;height:9px;border-radius:50%;background:var(--line)"></div><div style="width:9px;height:9px;border-radius:50%;background:var(--line)"></div><span style="margin-left:8px;font:400 11.5px 'IBM Plex Mono',monospace;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">erp.yourcompany.com/{{ active.slug }}</span></div>
+          <div style="display:grid;grid-template-columns:118px minmax(0,1fr);aspect-ratio:16/9;min-height:230px;background:var(--surface);overflow:hidden">
+            <div style="background:var(--sunk);border-right:1px solid var(--line);padding:11px 9px;overflow:hidden">
+              <div style="display:flex;align-items:center;gap:6px;padding:0 5px 11px"><div style="width:14px;height:14px;border-radius:4px;background:var(--accent)"></div><span style="font-size:11px;font-weight:700;letter-spacing:-.02em">ERPNext</span></div>
+              <sc-for list="{{ screen.nav }}" as="n" hint-placeholder-count="8">
+                <sc-if value="{{ n.on }}"><div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;margin-bottom:1px"><div style="width:4px;height:4px;border-radius:50%;background:#fff"></div>{{ n.label }}</div></sc-if>
+                <sc-if value="{{ n.off }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;color:var(--muted);font-size:11px;margin-bottom:1px"><div style="width:4px;height:4px;border-radius:50%;background:var(--line)"></div>{{ n.label }}</div></sc-if>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;min-width:0">
+              <div style="display:flex;align-items:center;flex-wrap:wrap;gap:7px;padding:9px 12px;border-bottom:1px solid var(--line)">
+                <span style="font-size:12px;font-weight:700;letter-spacing:-.02em">{{ screen.title }}</span>
+                <sc-for list="{{ screen.filters }}" as="f" hint-placeholder-count="2">
+                  <span style="font:500 9px 'IBM Plex Mono',monospace;background:var(--sunk);color:var(--muted);padding:2px 7px;border-radius:999px;letter-spacing:.04em;white-space:nowrap">{{ f }}</span>
+                </sc-for>
+              </div>
+              <div style="display:grid;grid-template-columns:1.1fr 1.5fr .8fr .9fr;background:var(--sunk);border-bottom:1px solid var(--line)">
+                <sc-for list="{{ screen.cols }}" as="c" hint-placeholder-count="4">
+                  <div style="padding:6px 10px;font:500 8.5px 'IBM Plex Mono',monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden">{{ c }}</div>
+                </sc-for>
+              </div>
+              <sc-for list="{{ screen.rows }}" as="r" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:1.1fr 1.5fr .8fr .9fr;border-bottom:1px solid var(--line)"><div style="padding:8px 10px;font-size:10.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.a }}</div><div style="padding:8px 10px;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.b }}</div><div style="padding:8px 10px;font-size:10.5px;color:var(--muted);white-space:nowrap">{{ r.c }}</div><div style="padding:8px 10px"><span style="font:500 9px 'IBM Plex Mono',monospace;color:var(--accent-ink);background:var(--accent-soft);padding:2px 6px;border-radius:999px;white-space:nowrap">{{ r.d }}</span></div></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="method" style="padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line)">
+    <div style="background:var(--inv-bg);color:var(--inv-ink);border-radius:16px;padding:clamp(28px,4vw,44px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:30px">
+        <h2 style="margin:0;font-weight:700;font-size:clamp(24px,3.2vw,31px);line-height:1.12;letter-spacing:-.028em">How a rollout actually runs</h2>
+        <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:var(--inv-muted)">TYPICAL 10–14 WEEKS</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px">
+        <div style="border-top:2px solid var(--accent-ink);padding-top:16px"><div style="font:500 12px 'IBM Plex Mono',monospace;color:var(--accent-ink)">01 · WK 1–2</div><h3 style="margin:9px 0 7px;font-size:17px;font-weight:600">Process mapping</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--inv-muted)">We sit with your team, document how work moves today, and write down every gap before touching a setting.</p></div>
+        <div style="border-top:2px solid var(--inv-line);padding-top:16px"><div style="font:500 12px 'IBM Plex Mono',monospace;color:var(--inv-muted)">02 · WK 3–6</div><h3 style="margin:9px 0 7px;font-size:17px;font-weight:600">Configure &amp; migrate</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--inv-muted)">Masters, workflows and opening balances loaded. Standard first — customisation only where it earns its cost.</p></div>
+        <div style="border-top:2px solid var(--inv-line);padding-top:16px"><div style="font:500 12px 'IBM Plex Mono',monospace;color:var(--inv-muted)">03 · WK 7–9</div><h3 style="margin:9px 0 7px;font-size:17px;font-weight:600">UAT &amp; training</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--inv-muted)">Your people run their own real transactions on a test copy, with role-based training and written SOPs.</p></div>
+        <div style="border-top:2px solid var(--inv-line);padding-top:16px"><div style="font:500 12px 'IBM Plex Mono',monospace;color:var(--inv-muted)">04 · WK 10+</div><h3 style="margin:9px 0 7px;font-size:17px;font-weight:600">Go-live &amp; two closes</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--inv-muted)">We stay through two month-end closes, then hand over to support with everything documented.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line)">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px">
+      <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.028em">Selected work</h2>
+      <span style="font-size:14px;color:var(--muted)">Full references shared on request.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px">
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden">
+        <div style="position:relative;aspect-ratio:16/10;background:var(--sunk);border-bottom:1px solid var(--line)"><image-slot id="qcore-work-1" shape="rect" placeholder="Project photo or screenshot"></image-slot></div>
+        <div style="padding:20px"><div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)">Manufacturing</div><h3 style="margin:9px 0 7px;font-size:17.5px;font-weight:600;letter-spacing:-.014em">Two plants on one chart of accounts</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">Accounting, stock and production moved off spreadsheets, with job cards on the shop floor and a single monthly close.</p></div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden">
+        <div style="position:relative;aspect-ratio:16/10;background:var(--sunk);border-bottom:1px solid var(--line)"><image-slot id="qcore-work-2" shape="rect" placeholder="Project photo or screenshot"></image-slot></div>
+        <div style="padding:20px"><div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)">Distribution</div><h3 style="margin:9px 0 7px;font-size:17.5px;font-weight:600;letter-spacing:-.014em">Nine warehouses, one stock ledger</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">Barcode picking and depot transfers replaced a nightly reconciliation ritual; sales sees real availability.</p></div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden">
+        <div style="position:relative;aspect-ratio:16/10;background:var(--sunk);border-bottom:1px solid var(--line)"><image-slot id="qcore-work-3" shape="rect" placeholder="Project photo or screenshot"></image-slot></div>
+        <div style="padding:20px"><div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)">Services</div><h3 style="margin:9px 0 7px;font-size:17.5px;font-weight:600;letter-spacing:-.014em">Timesheets to invoices, without re-typing</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)">Project billing wired to an existing payroll system over API, so unbilled work stops hiding in email.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showEngagement }}" hint-placeholder-val="{{ true }}">
+  <section style="padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line)">
+    <h2 style="margin:0 0 28px;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.028em">Ways to work with us</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+      <div style="border:1px solid var(--line);border-radius:12px;padding:26px;background:var(--surface)"><h3 style="margin:0;font-size:18px;font-weight:600">Implementation</h3><div style="font:500 13px 'IBM Plex Mono',monospace;color:var(--muted);margin-top:6px">Fixed scope · fixed date</div><p style="margin:14px 0 0;font-size:14.5px;line-height:1.55;color:var(--muted)">One ERP go-live, priced from the written gap list. Two month-end closes included.</p></div>
+      <div style="border:1.5px solid var(--accent);border-radius:12px;padding:26px;background:var(--accent-soft)"><h3 style="margin:0;font-size:18px;font-weight:600">Retained partner</h3><div style="font:500 13px 'IBM Plex Mono',monospace;color:var(--accent-ink);margin-top:6px">Monthly · most common</div><p style="margin:14px 0 0;font-size:14.5px;line-height:1.55;color:var(--muted)">A standing block of hours for changes, new modules, integrations and support, with a named lead.</p></div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:26px;background:var(--surface)"><h3 style="margin:0;font-size:18px;font-weight:600">Product engineering</h3><div style="font:500 13px 'IBM Plex Mono',monospace;color:var(--muted);margin-top:6px">Per milestone</div><p style="margin:14px 0 0;font-size:14.5px;line-height:1.55;color:var(--muted)">A custom app or portal built to spec, in milestones you sign off one at a time.</p></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line)">
+    <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.028em;max-width:26ch;text-wrap:pretty">Straight answers, before the call</h2>
+    <div style="margin-top:24px">
+      <div data-faq style="border-top:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px"><h3 style="margin:0;font-size:16.5px;font-weight:600;letter-spacing:-.012em">Do you host it, or do we?</h3><p style="margin:0;font-size:15px;line-height:1.6;color:var(--muted)">Either. Most clients run on their own cloud account so the data and the backups stay theirs; we can manage it or hand you the keys.</p></div>
+      <div data-faq style="border-top:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px"><h3 style="margin:0;font-size:16.5px;font-weight:600;letter-spacing:-.012em">What if ERPNext doesn’t cover something?</h3><p style="margin:0;font-size:15px;line-height:1.6;color:var(--muted)">We build it as a proper app on top rather than hacking core, so your upgrades keep working. That gap list is written before kickoff, not discovered in month four.</p></div>
+      <div data-faq style="border-top:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px"><h3 style="margin:0;font-size:16.5px;font-weight:600;letter-spacing:-.012em">How much of our time will this take?</h3><p style="margin:0;font-size:15px;line-height:1.6;color:var(--muted)">Expect one process owner per area for a few hours a week, and a heavier fortnight during UAT. We do the configuration and the data work.</p></div>
+      <div data-faq style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px"><h3 style="margin:0;font-size:16.5px;font-weight:600;letter-spacing:-.012em">Can you take over a stalled implementation?</h3><p style="margin:0;font-size:15px;line-height:1.6;color:var(--muted)">Yes — we start with an audit of what’s configured and what’s broken, then give you a written plan to finish or to reset.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" data-split style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,48px);padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--line);align-items:start">
+    <div>
+      <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.028em;max-width:22ch;text-wrap:pretty">Tell us what’s slowing you down</h2>
+      <p style="margin:16px 0 0;font-size:16px;line-height:1.6;color:var(--muted);max-width:46ch;text-wrap:pretty">A 30-minute call, no deck. We’ll tell you whether ERPNext is the right answer — including when it isn’t.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;font-size:15px;color:var(--muted)">
+        <a href="mailto:hello@qcoresolutions.com">hello@qcoresolutions.com</a>
+        <span>Mon–Fri, 10:00–19:00 IST</span>
+      </div>
+    </div>
+    <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,28px);background:var(--surface)">
+      <label style="display:flex;flex-direction:column;gap:6px;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)">Name<input type="text" placeholder="Your name" style="border:1px solid var(--line);border-radius:8px;padding:13px 12px;font-family:'Archivo',system-ui,sans-serif;font-size:15px;background:var(--bg);color:var(--ink);min-height:46px;box-sizing:border-box"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)">Work email<input type="email" placeholder="you@company.com" style="border:1px solid var(--line);border-radius:8px;padding:13px 12px;font-family:'Archivo',system-ui,sans-serif;font-size:15px;background:var(--bg);color:var(--ink);min-height:46px;box-sizing:border-box"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)">What are you trying to fix?<textarea rows="4" placeholder="Current systems, team size, what’s breaking" style="border:1px solid var(--line);border-radius:8px;padding:13px 12px;font-family:'Archivo',system-ui,sans-serif;font-size:15px;background:var(--bg);color:var(--ink);resize:vertical;box-sizing:border-box"></textarea></label>
+      <button type="submit" style="margin-top:4px;background:var(--accent);color:#fff;border:0;border-radius:9px;padding:15px 20px;font-size:15.5px;font-weight:600;cursor:pointer;min-height:48px">{{ submitLabel }}</button>
+      <span style="font-size:13px;color:var(--muted)">We reply within one working day.</span>
+    </form>
+  </section>
+
+  <footer style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:26px 0 36px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)">
+    <div style="display:flex;align-items:center;gap:9px"><div style="width:16px;height:16px;border-radius:5px;background:var(--accent)"></div><span>Qcore Solutions</span></div>
+    <span>ERPNext implementation · custom software · integrations</span>
+    <span>© 2026</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;System&quot;,&quot;Light&quot;,&quot;Dark&quot;],&quot;default&quot;:&quot;System&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#1f4fd8&quot;,&quot;#0f7a52&quot;,&quot;#b0431f&quot;,&quot;#5b3fd8&quot;],&quot;default&quot;:&quot;#1f4fd8&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;showEngagement&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page content&quot;}}">
+const NAV = ["Home","Accounting","Stock","Manufacturing","Selling","Buying","HR","Projects"];
+
+const SCREENS = {
+  accounts: {nav:"Accounting", title:"Sales Invoice", cols:["Invoice","Customer","Due","Status"],
+    rows:[["SINV-02418","Nandini Metals","12 Sep","Paid"],["SINV-02417","Shakti Traders","14 Sep","Unpaid"],["SINV-02416","Vega Polymers","18 Sep","Unpaid"],["SINV-02415","Orion Castings","21 Sep","Paid"],["SINV-02414","Bhagwati Steel","26 Sep","Draft"]],
+    filters:["This month","All cost centres"]},
+  stock: {nav:"Stock", title:"Stock Balance", cols:["Item","Warehouse","Qty","UOM"],
+    rows:[["FG-1042","Finished goods","1,240","Nos"],["FG-1043","Finished goods","860","Nos"],["RM-2201","Raw material","4,500","Kg"],["RM-2208","Raw material","1,180","Kg"],["FG-1051","Depot — Nashik","320","Nos"]],
+    filters:["Plant — Pune","Live valuation"]},
+  manufacturing: {nav:"Manufacturing", title:"Work Order", cols:["Work order","Item","Qty","Status"],
+    rows:[["WO-00841","FG-1042","500","In process"],["WO-00840","FG-1043","250","In process"],["WO-00839","FG-1051","120","Completed"],["WO-00838","FG-1042","400","Completed"],["WO-00837","RM-2208","—","Stopped"]],
+    filters:["Open","Plant — Pune"]},
+  selling: {nav:"Selling", title:"Sales Order", cols:["Order","Customer","Delivery","Status"],
+    rows:[["SO-01920","Nandini Metals","15 Sep","To deliver"],["SO-01919","Orion Castings","17 Sep","To deliver"],["SO-01918","Shakti Traders","19 Sep","Completed"],["SO-01917","Vega Polymers","24 Sep","To bill"],["SO-01916","Bhagwati Steel","30 Sep","Draft"]],
+    filters:["Open","All territories"]},
+  hr: {nav:"HR", title:"Attendance", cols:["Employee","Shift","Date","Status"],
+    rows:[["HR-EMP-0114","General","08 Sep","Present"],["HR-EMP-0115","Shift A","08 Sep","Present"],["HR-EMP-0116","Shift B","08 Sep","On leave"],["HR-EMP-0117","General","08 Sep","Present"],["HR-EMP-0118","Shift A","08 Sep","Half day"]],
+    filters:["September","All departments"]},
+  "app/custom": {nav:"Projects", title:"Site Visit Report", cols:["Report","Engineer","Site","Status"],
+    rows:[["SVR-00312","R. Kulkarni","Pune — Plant 2","Submitted"],["SVR-00311","A. Sheikh","Nashik depot","Approved"],["SVR-00310","M. Iyer","Surat depot","Submitted"],["SVR-00309","R. Kulkarni","Pune — Plant 1","Approved"],["SVR-00308","A. Sheikh","Client site","Draft"]],
+    filters:["Custom doctype","Mobile capture"]},
+};
+
+const MODULES = [
+  {name:"Accounting", tag:"Common start", slug:"accounts", shot:"chart of accounts and P&L",
+   blurb:"Multi-company chart of accounts, tax templates, e-invoicing and bank reconciliation — a month-end close you can finish on time.",
+   chips:["Multi-company COA","GST / VAT","E-invoice","Bank reconciliation","Cost centres"]},
+  {name:"Inventory", tag:"Warehouse", slug:"stock", shot:"stock balance and warehouse tree",
+   blurb:"Batch and serial tracking across every warehouse, barcode picking, and valuation your finance team and your storekeeper both trust.",
+   chips:["Batch / serial","Multi-warehouse","Barcode picking","Reorder levels","Stock ageing"]},
+  {name:"Manufacturing", tag:"Shop floor", slug:"manufacturing", shot:"work orders and job cards",
+   blurb:"Multi-level BOMs, subcontracting, job cards and capacity planning — production status without chasing updates on WhatsApp.",
+   chips:["Multi-level BOM","Subcontracting","Job cards","Capacity planning","Scrap tracking"]},
+  {name:"Buying & selling", tag:"Quote to cash", slug:"selling", shot:"sales order pipeline",
+   blurb:"Approval matrices, customer and supplier price lists, and a clean path from quotation to invoice to collection.",
+   chips:["Approval matrix","Price lists","Partial shipments","Credit limits","Collections"]},
+  {name:"HR & payroll", tag:"Statutory", slug:"hr", shot:"attendance and payroll run",
+   blurb:"Attendance and shifts, leave policy, statutory payroll and a self-service portal your team will actually log into.",
+   chips:["Shifts & attendance","Leave policy","Statutory payroll","Self-service","Expense claims"]},
+  {name:"Custom & mobile", tag:"Built on Frappe", slug:"app/custom", shot:"custom doctype form",
+   blurb:"Where the standard modules stop, we build — bespoke doctypes, customer portals and mobile front-ends that survive every upgrade.",
+   chips:["Custom doctypes","Customer portal","Mobile app","API integrations","Scheduled jobs"]},
+];
+
+class Component extends DCLogic {
+  state = { i: 0, dark: false, sent: false };
+
+  componentDidMount() { this.applyTheme(); this.applyAccent(); }
+  componentDidUpdate(prev) {
+    if (prev.defaultTheme !== this.props.defaultTheme) this.applyTheme();
+    if (prev.accent !== this.props.accent) this.applyAccent();
+  }
+
+  applyTheme() {
+    const pref = this.props.defaultTheme || "System";
+    let dark;
+    if (pref === "Dark") dark = true;
+    else if (pref === "Light") dark = false;
+    else dark = !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    this.setDark(dark);
+  }
+  setDark(dark) {
+    document.body.dataset.theme = dark ? "dark" : "light";
+    this.setState({ dark });
+    this.applyAccent();
+  }
+  applyAccent() {
+    const a = this.props.accent;
+    if (a) document.body.style.setProperty("--accent", a);
+  }
+
+  renderVals() {
+    const i = this.state.i, m = MODULES[i];
+    const s = SCREENS[m.slug];
+    return {
+      screen: {
+        title: s.title,
+        filters: s.filters,
+        cols: s.cols,
+        rows: s.rows.map(r => ({ a: r[0], b: r[1], c: r[2], d: r[3] })),
+        nav: NAV.map(n => ({ label: n, on: n === s.nav, off: n !== s.nav })),
+      },
+      heroNav: NAV.map(n => ({ label: n, on: n === "Accounting", off: n !== "Accounting" })),
+      heroRows: SCREENS.accounts.rows.map(r => ({ a: r[0], b: r[1], c: r[2], d: r[3] })),
+      showEngagement: this.props.showEngagement ?? true,
+      themeLabel: this.state.dark ? "Light" : "Dark",
+      toggleTheme: () => this.setDark(!this.state.dark),
+      submitLabel: this.state.sent ? "Thanks — we’ll be in touch" : "Request a call",
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      active: m,
+      modules: MODULES.map((x, n) => ({
+        name: x.name,
+        num: String(n + 1).padStart(2, "0"),
+        select: () => this.setState({ i: n }),
+        selected: n === i,
+        unselected: n !== i,
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

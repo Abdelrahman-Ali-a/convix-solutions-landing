@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T13:45:39.5972289Z",
+  "extensions": {
+    "scope": "variants/b-refined only; normative primitive tokens are in ../DESIGN.md frontmatter",
+    "sources": [
+      "style.css",
+      "main.js",
+      "index.html",
+      "../b/style.css",
+      "../../../PRODUCT.md"
+    ],
+    "layout": {
+      "shell": "1240px",
+      "gutter": "clamp(22px,4vw,52px)",
+      "desktopBreakpoint": "1100px",
+      "mapStage": [
+        1440,
+        820
+      ],
+      "mapScale": "min(map.clientWidth / 1440, (innerHeight - headerHeight - 12) / 820)",
+      "mobileStageDisplay": "contents"
+    },
+    "motion": {
+      "ease": "cubic-bezier(.16,1,.3,1)",
+      "reducedMotion": "Transitions disabled; map content remains visible"
+    },
+    "elevation": {
+      "board": "0 20px 44px -24px rgba(14,22,34,.38)",
+      "stationSign": "none"
+    },
+    "identityPreserved": [
+      "cool map ground",
+      "navy enamel",
+      "blue ERPNext trunk",
+      "red web / green integrations / amber mobile",
+      "Overpass / Alexandria",
+      "one selected EN/AR language with RTL"
+    ],
+    "verification": {
+      "scope": "local artifact",
+      "widthLanguageCases": 14,
+      "desktopFitCases": 8,
+      "independentReview": "ship; no material findings; 11 refreshed captures and eight fit captures reviewed"
+    },
+    "colorMeta": {
+      "ground": {
+        "displayName": "Cool map white",
+        "role": "Page ground"
+      },
+      "ink": {
+        "displayName": "Enamel navy",
+        "role": "Text, signs and stations"
+      },
+      "trunk": {
+        "displayName": "ERPNext blue",
+        "role": "Main delivery route"
+      },
+      "red": {
+        "displayName": "Web service red",
+        "role": "Custom web route"
+      },
+      "green": {
+        "displayName": "Integration green",
+        "role": "Integration route"
+      },
+      "amber": {
+        "displayName": "Mobile amber",
+        "role": "Mobile route"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "role": "English heading on unscaled desktop map"
+      },
+      "display-ar": {
+        "role": "Arabic heading on unscaled desktop map"
+      },
+      "body": {
+        "role": "Default English body; Arabic uses its own family and line-height"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Board action",
+      "html": "<a class=\"ds-board\" href=\"#contact\">Talk through your process</a>",
+      "css": ".ds-board{display:inline-flex;align-items:center;min-height:48px;padding:12px 22px;border-radius:999px;background:var(--ink,#0e1622);color:white;font:800 16px/1 Overpass,sans-serif;text-decoration:none;transition:transform .2s}.ds-board:hover{background:var(--enamel-2,#18243a);transform:translateY(-1px)}.ds-board:active{transform:none}.ds-board:focus-visible{outline:3px solid var(--trunk,#087afe);outline-offset:3px}",
+      "kind": "custom"
+    },
+    {
+      "name": "WhatsApp action",
+      "html": "<a class=\"ds-wa\" href=\"#contact\">WhatsApp</a>",
+      "css": ".ds-wa{display:inline-flex;align-items:center;min-height:48px;padding:12px 22px;border-radius:999px;background:var(--trunk-deep,#0062d6);color:white;font:800 16px/1 Overpass,sans-serif;text-decoration:none}.ds-wa:hover{background:#0057bf;transform:translateY(-1px)}.ds-wa:active{transform:none}.ds-wa:focus-visible{outline:3px solid var(--trunk,#087afe);outline-offset:3px}",
+      "kind": "custom"
+    },
+    {
+      "name": "Language control",
+      "html": "<button class=\"ds-language\" lang=\"ar\">العربية</button>",
+      "css": ".ds-language{min-height:44px;min-width:66px;padding:6px 16px;border-radius:999px;border:1px solid var(--ink,#0e1622);background:transparent;color:var(--ink,#0e1622);font:700 15px Alexandria,sans-serif;cursor:pointer}.ds-language:hover{background:var(--ink,#0e1622);color:white}.ds-language:focus-visible{outline:3px solid var(--trunk,#087afe);outline-offset:3px}",
+      "kind": "custom"
+    },
+    {
+      "name": "Station sign",
+      "html": "<div class=\"ds-sign\">Discover</div>",
+      "css": ".ds-sign{display:inline-flex;padding:9px 14px;border-radius:5px;background:var(--ink,#0e1622);color:white;font:800 18px/1.2 Overpass,sans-serif}",
+      "kind": "custom"
+    },
+    {
+      "name": "FAQ disclosure",
+      "html": "<details class=\"ds-faq\"><summary>Is ERPNext the right fit?</summary><p>We start by understanding your process.</p></details>",
+      "css": ".ds-faq{border-top:1px solid rgba(14,22,34,.14);color:var(--ink,#0e1622);font:17px/1.75 Overpass,sans-serif}.ds-faq summary{padding:25px 0;font-size:19px;line-height:1.5;cursor:pointer}.ds-faq summary:hover{color:var(--trunk-text,#005bc7)}.ds-faq summary:focus-visible{outline:3px solid var(--trunk,#087afe);outline-offset:3px}.ds-faq p{margin:0 0 24px;color:var(--ink-2,#3d4756)}",
+      "kind": "custom"
+    }
+  ],
+  "narrative": {
+    "northStar": "Line Map",
+    "overview": "This document describes the effective styling of `b-refined` only. It preserves variant B's transit diagram identity: delivery phases are stations and services are connected routes. It does not replace the wider brand kit or change root product context.",
+    "keyCharacteristics": [
+      "Cool map ground and dark enamel signs.",
+      "Service-owned route colors and circular interchange marks.",
+      "Equal English and Arabic editions, displayed one language at a time.",
+      "Lighter panels, calmer weight and more space within the incumbent composition."
+    ],
+    "rules": [
+      {
+        "name": "The Service Ink Rule",
+        "body": "Preserve the existing service-to-color assignments.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "Show the selected language alone, with Arabic RTL and Latin product names preserved.",
+        "section": "typography"
+      },
+      {
+        "name": "The Whole Route Rule",
+        "body": "Fit the complete desktop artwork to available viewport space; keep signs, stations and branches together.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do preserve service inks, station geometry and equal EN/AR support.",
+      "Do validate the entire route at short desktop heights as well as narrow widths.",
+      "Do keep generated imagery captioned as conceptual."
+    ],
+    "donts": [
+      "Don't treat this edition's layout refinements as a replacement for the global brand system.",
+      "Don't turn concept imagery into client or product evidence."
+    ]
+  },
+  "title": "Design System: Qcore Line Map — refined edition"
+}

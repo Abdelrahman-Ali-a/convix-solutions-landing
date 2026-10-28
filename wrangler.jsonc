@@ -1,18 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "corvix-solutions-landing",
+  "name": "qcore-solutions-landing",
   "compatibility_date": "2026-09-08",
-  // The site is reachable only on corvix-solutions.com. Both the
-  // *.workers.dev URL and preview URLs are off deliberately.
+  // qcore-solutions.com is served by the Cloudflare Pages project
+  // "qcore-solutions" (see build-pages.sh), not by this Worker, so no
+  // custom-domain routes are declared here. Both the *.workers.dev URL
+  // and preview URLs are off deliberately.
   "workers_dev": false,
   "preview_urls": false,
   "observability": {
     "enabled": true
   },
-  "routes": [
-    { "pattern": "corvix-solutions.com", "custom_domain": true },
-    { "pattern": "www.corvix-solutions.com", "custom_domain": true }
-  ],
   "assets": {
     // Serve only the assembled output. Pointing this at "." would publish
     // the whole repo, including design-source/ and README.md.

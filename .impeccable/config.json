@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "variants/a/index.html"
+        ],
+        "createdAt": "2026-10-21T12:53:16.219Z",
+        "reason": "agent verified in 1440/390 renders: containers pad with clamp(), which the static check does not resolve; visible inset present"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "variants/b/index.html"
+        ],
+        "createdAt": "2026-10-21T12:53:16.401Z",
+        "reason": "agent verified in 1440/390 renders: containers pad with clamp(), which the static check does not resolve; visible inset present"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "variants/b-refined/index.html"
+        ],
+        "createdAt": "2026-10-21T13:50:13.203Z",
+        "reason": "agent verified: every flagged container pads via clamp()/max(var(--gutter),...) (legend 23px block, board 28-40px, timetable 12px/32px, bh-inner 56-96px) which the static check does not resolve; same false positive as variants/b"
+      }
+    ]
+  }
+}
