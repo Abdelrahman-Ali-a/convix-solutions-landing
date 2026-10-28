@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-title-ar="Qcore Solutions — تنفيذ ERPNext والبرمجيات المخصصة">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qcore Solutions — ERPNext implementation &amp; custom software</title>
+<meta name="description" content="Qcore Solutions implements ERPNext and builds the custom software around it, delivered by the consultant who runs your workshop.">
+<meta name="theme-color" content="#0e1622">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/icon-180.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="edition-refined">
+<a class="skip-link" href="#main" data-ar="انتقل إلى المحتوى">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Qcore Solutions — home" data-ar-aria-label="Qcore Solutions — الصفحة الرئيسية">
+    <img src="../../img/logo.png" alt="Qcore Solutions" width="400" height="149">
+  </a>
+  <nav class="trip" aria-label="You are here" data-ar-aria-label="أنت هنا">
+    <ol class="trip-stops">
+      <li><a href="#top" data-ar="البداية">Start</a></li>
+      <li><a href="#lines" data-ar="الخطوط">Lines</a></li>
+      <li><a href="#route" data-ar="المسار">Route</a></li>
+      <li><a href="#projects" data-ar="المشاريع">Projects</a></li>
+      <li><a href="#team" data-ar="الفريق">Team</a></li>
+      <li><a href="#contact" data-ar="تواصل">Contact</a></li>
+    </ol>
+    <span class="trip-marker" aria-hidden="true"></span>
+  </nav>
+  <div class="topbar-actions">
+    <button class="lang-btn" type="button" data-lang-toggle>عربي</button>
+    <a class="btn btn-board btn-sm" href="https://wa.me/201505716467" data-ar="واتساب">WhatsApp</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO: the line map ============ -->
+  <section class="map" id="top" aria-labelledby="hero-title">
+    <div class="map-stage">
+    <svg class="map-lines" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+      <g class="branches">
+        <path class="ln ln-red is-optional" d="M460 720 L 530 790 H 590"/>
+        <path class="ln ln-green is-optional" d="M880 540 V 720 L 920 760 H 960"/>
+        <path class="ln ln-amber is-optional" d="M1240 420 V 640 L 1180 700"/>
+        <circle class="br-end" cx="590" cy="790" r="13" style="--line:var(--red)"/>
+        <circle class="br-end" cx="960" cy="760" r="13" style="--line:var(--green)"/>
+        <circle class="br-end" cx="1180" cy="700" r="13" style="--line:var(--amber)"/>
+      </g>
+      <path class="ln ln-trunk" id="trunk" d="M-20 720 H 660 L 840 540 H 1060 L 1180 420 H 1240"/>
+      <path class="ln ln-casing" d="M1240 420 L 1360 300"/>
+      <path class="ln ln-core" d="M1240 420 L 1360 300"/>
+      <g class="stations">
+        <circle class="stn" cx="220" cy="720" r="17"/>
+        <circle class="stn stn-x" cx="460" cy="720" r="25"/>
+        <circle class="stn stn-x" cx="880" cy="540" r="25"/>
+        <circle class="stn" cx="1020" cy="540" r="17"/>
+        <circle class="stn stn-x" cx="1240" cy="420" r="25"/>
+      </g>
+      <g class="terminus">
+        <circle cx="1360" cy="300" r="58" class="term-outer"/>
+        <circle cx="1360" cy="300" r="38" class="term-ring"/>
+        <circle cx="1360" cy="300" r="17" class="term-core"/>
+      </g>
+      <circle class="here-pulse" cx="220" cy="720" r="30"/>
+    </svg>
+
+    <!-- station signs: English and Arabic at equal size, always both -->
+    <ol class="signs" aria-label="Delivery route" data-ar-aria-label="مسار التنفيذ">
+      <li class="sign is-above" style="--x:220;--y:720"><span class="sign-en">Discover</span><span class="sign-ar" lang="ar">الاستكشاف</span></li>
+      <li class="sign is-above is-x" style="--x:460;--y:720;--line:var(--red)" data-line="Custom web apps" data-ar-data-line="تطبيقات ويب"><span class="sign-en">Configure</span><span class="sign-ar" lang="ar">الإعداد</span></li>
+      <li class="sign is-x" style="--x:880;--y:540;--line:var(--green)" data-line="Integrations" data-ar-data-line="التكاملات"><span class="sign-en">Migrate</span><span class="sign-ar" lang="ar">الترحيل</span></li>
+      <li class="sign" style="--x:1020;--y:540"><span class="sign-en">Test &amp; train</span><span class="sign-ar" lang="ar">الاختبار والتدريب</span></li>
+      <li class="sign is-x" style="--x:1240;--y:420;--line:var(--amber)" data-line="Mobile apps" data-ar-data-line="تطبيقات الجوال"><span class="sign-en">Go-live</span><span class="sign-ar" lang="ar">التشغيل</span></li>
+      <li class="sign sign-term" style="--x:1360;--y:300"><span class="sign-en">Life after go-live</span><span class="sign-ar" lang="ar">ما بعد التشغيل</span></li>
+    </ol>
+    <p class="you-are-here" style="--x:220;--y:720" data-ar="أنت هنا: المكالمة الأولى">You are here: the first call</p>
+    <ul class="branch-signs" aria-label="Lines that join where they earn their cost" data-ar-aria-label="خطوط تنضم حيث تستحق تكلفتها">
+      <li class="bsign" style="--x:590;--y:790;--line:var(--red)"><span>Custom web apps</span><span lang="ar">تطبيقات ويب</span></li>
+      <li class="bsign" style="--x:960;--y:760;--line:var(--green-deep)"><span>Integrations</span><span lang="ar">التكاملات</span></li>
+      <li class="bsign is-start" style="--x:1180;--y:700;--line:var(--amber)"><span>Mobile apps</span><span lang="ar">تطبيقات الجوال</span></li>
+    </ul>
+
+    <div class="board">
+      <h1 id="hero-title" data-ar="تنفيذ أنظمة ERP، من أول ورشة عمل حتى ما بعد التشغيل.">ERP delivery, from the first workshop to life after go-live.</h1>
+      <p class="board-lede" data-ar="ننفّذ ERPNext ونطوّر البرمجيات المخصصة حوله. الاستشاري الذي يدير ورشة العمل هو نفسه من يُعدّ نظامك ويسلّمه.">We implement ERPNext and build the custom software around it. The consultant who runs your workshop is the one who configures and delivers your system.</p>
+      <div class="board-actions">
+        <a class="btn btn-wa" href="https://wa.me/201505716467">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.1-3.6A8 8 0 1 1 8.4 18.6z"/><path d="M9.2 8.6c.2 2.6 2.4 4.9 5.2 5.4l1.1-1.3 1.9.9"/></svg>
+          <span data-ar="راسلنا على واتساب">WhatsApp us</span>
+        </a>
+        <a class="btn btn-mail" href="mailto:contact@qcore-solutions.com" aria-label="Email us at contact@qcore-solutions.com" data-ar-aria-label="راسلنا على contact@qcore-solutions.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4 6.5l8 6 8-6"/></svg>
+          <span class="mail-full" dir="ltr">contact@qcore-solutions.com</span><span class="mail-short" data-ar="راسلنا بالبريد">Email us</span>
+        </a>
+      </div>
+      <p class="board-meta" data-ar="4 استشاريين معتمدين من SAP · خبرة مجمّعة تقارب 15 عامًا · مصر والسعودية والإمارات والخليج">4 SAP-certified consultants · about 15 years combined · Egypt, Saudi Arabia, UAE, GCC</p>
+    </div>
+      </div>
+  </section>
+
+  <div class="legend" aria-label="Map key" data-ar-aria-label="مفتاح الخريطة">
+    <span class="key key-solid"><i style="--line:var(--trunk)"></i><span data-ar="ERPNext — الخط الرئيسي">ERPNext — the trunk line</span></span>
+    <span class="key"><i style="--line:var(--red)"></i><span data-ar="تطبيقات ويب مخصصة">Custom web apps</span></span>
+    <span class="key"><i style="--line:var(--green)"></i><span data-ar="التكاملات">Integrations</span></span>
+    <span class="key"><i style="--line:var(--amber)"></i><span data-ar="تطبيقات الجوال">Mobile apps</span></span>
+    <span class="key-note" data-ar="الخطوط المنقّطة تنضم فقط حيث تؤكد مرحلة الاستكشاف حاجتها.">Dotted lines join only where discovery confirms they earn their cost.</span>
+  </div>
+
+  <!-- ============ LINES: services ============ -->
+  <section class="section lines" id="lines" aria-labelledby="lines-title">
+    <div class="service-intro">
+<header class="section-head">
+      <h2 id="lines-title" data-ar="نظام واحد، وخطوط تنطلق منه.">One system, and the lines that run off it.</h2>
+      <p data-ar="ERPNext هو الخط الرئيسي. التطبيقات والتكاملات تُضاف فقط حيث تستحق تكلفتها — لذلك تبدو متقطعة حتى تؤكدها مرحلة الاستكشاف.">ERPNext is the trunk line. Apps and integrations join only where they earn their cost — that's why they run dashed until discovery confirms them.</p>
+    </header>
+    <figure class="operations-art">
+      <img src="assets/connected-operations.webp" alt="An architectural model of connected routes, illustrating how business operations join one system." data-ar-alt="نموذج معماري لمسارات متصلة يوضح كيف تجتمع عمليات الأعمال في نظام واحد." width="1200" height="800" loading="lazy" decoding="async">
+      <figcaption data-ar="تصوّر توضيحي — عمليات مترابطة، ونظام واحد.">Concept illustration — connected operations, one system.</figcaption>
+    </figure>
+    </div>
+
+    <ol class="line-list">
+      <li class="line-row" style="--line:var(--trunk)">
+        <div class="line-sign"><span class="line-en">ERPNext implementation</span><span class="line-ar" lang="ar">تنفيذ ERPNext</span></div>
+        <div class="line-body">
+          <p data-ar="ورش العمليات، والإعداد، وترحيل البيانات، والاختبار، والتدريب، والتشغيل — وفق نطاق مكتوب.">Process workshops, configuration, data migration, testing, training and go-live — against a written scope.</p>
+          <ul class="stops">
+            <li data-ar="المالية والمحاسبة">Finance &amp; accounting</li>
+            <li data-ar="المشتريات والمخزون">Procurement &amp; inventory</li>
+            <li data-ar="المبيعات ونقاط البيع">Sales &amp; point of sale</li>
+            <li data-ar="الموارد البشرية والرواتب">HR &amp; payroll</li>
+            <li data-ar="Frappe للتعليم">Frappe Education</li>
+          </ul>
+        </div>
+      </li>
+      <li class="line-row is-optional" style="--line:var(--red)">
+        <div class="line-sign"><span class="line-en">Custom web apps</span><span class="line-ar" lang="ar">تطبيقات ويب مخصصة</span></div>
+        <div class="line-body">
+          <p data-ar="بوابات وأدوات داخلية ولوحات متابعة على Frappe، تُبنى بجوار نظامك لا على حسابه، فتظل التحديثات تعمل.">Portals, internal tools and dashboards on Frappe, built beside your ERP rather than against it, so upgrades keep working.</p>
+        </div>
+      </li>
+      <li class="line-row is-optional" style="--line:var(--green)">
+        <div class="line-sign"><span class="line-en">Integrations</span><span class="line-ar" lang="ar">التكاملات</span></div>
+        <div class="line-body">
+          <p data-ar="واجهات برمجية وتبادل ملفات بين ERP والموارد البشرية ونقاط البيع والتجارة الإلكترونية والبنوك وبوابات الفاتورة الإلكترونية.">APIs and file exchange between your ERP, HR, POS, e-commerce, banks and tax e-invoicing portals.</p>
+        </div>
+      </li>
+      <li class="line-row is-optional" style="--line:var(--amber)">
+        <div class="line-sign"><span class="line-en">Mobile apps</span><span class="line-ar" lang="ar">تطبيقات الجوال</span></div>
+        <div class="line-body">
+          <p data-ar="تطبيقات للميدان والمستودعات والحضور والموافقات، على البيانات الحية نفسها التي يراها المقر الرئيسي.">Field, warehouse, attendance and approval apps on the same live data as head office.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ ROUTE: how we work ============ -->
+  <section class="section route" id="route" aria-labelledby="route-title">
+    <div class="route-rules">
+      <h2 id="route-title" data-ar="المعيار أولًا، والتخصيص حيث تحتاجه الأعمال فقط.">Standard first, custom only where the business needs it.</h2>
+      <dl class="rules">
+        <div><dt data-ar="تنفيذ يقوده الاستشاري">Consultant-led delivery</dt><dd data-ar="لا تسليم بين من يبيع ومن يصمّم ومن يبني.">No hand-off between the people who sell, design and build.</dd></div>
+        <div><dt data-ar="فريق واحد لكل الوظائف">One team across functions</dt><dd data-ar="المالية وسلسلة الإمداد والموارد البشرية والتكامل تعمل معًا على العملية كاملة.">Finance, supply chain, HR and integration work on the end-to-end process together.</dd></div>
+        <div><dt data-ar="خبرة إقليمية">Regional experience</dt><dd data-ar="تنفيذ في مصر والسعودية والإمارات والخليج، بما في ذلك متطلبات الضرائب المحلية.">Delivery in Egypt, Saudi Arabia, the UAE and the GCC, including local tax requirements.</dd></div>
+      </dl>
+    </div>
+
+    <div class="route-track">
+    <span class="route-marker" aria-hidden="true"></span>
+    <ol class="route-line">
+      <li class="stop">
+        <div class="stop-sign"><span class="stop-en">Discover</span><span class="stop-ar" lang="ar">الاستكشاف</span></div>
+        <p data-ar="ورش العمليات وتتبّع المتطلبات، ونكتب كل فجوة قبل أن نلمس أي إعداد.">Process workshops and requirements traceability. Every gap is written down before a setting is touched.</p>
+      </li>
+      <li class="stop">
+        <div class="stop-sign"><span class="stop-en">Configure</span><span class="stop-ar" lang="ar">الإعداد</span></div>
+        <p data-ar="إعداد قياسي، وسدّ الفجوات بالقواعد والإضافات.">Standard setup, with gaps closed by rules and extensions.</p>
+      </li>
+      <li class="stop">
+        <div class="stop-sign"><span class="stop-en">Migrate</span><span class="stop-ar" lang="ar">الترحيل</span></div>
+        <p data-ar="تحميل البيانات الأساسية والأرصدة الافتتاحية ومطابقتها، ليكون رصيدك دقيقًا من اليوم الأول.">Master data and opening balances loaded and reconciled, so your balances are right on day one.</p>
+      </li>
+      <li class="stop">
+        <div class="stop-sign"><span class="stop-en">Test &amp; train</span><span class="stop-ar" lang="ar">الاختبار والتدريب</span></div>
+        <p data-ar="اختبار التكامل وقبول المستخدمين، وتدريب المستخدمين الرئيسيين.">Integration and user acceptance testing, and key-user training.</p>
+      </li>
+      <li class="stop">
+        <div class="stop-sign"><span class="stop-en">Go-live</span><span class="stop-ar" lang="ar">التشغيل</span></div>
+        <p data-ar="الانتقال إلى النظام الجديد، ثم دعم مكثف حتى تستقر العمليات.">Cutover, then hypercare until operations settle.</p>
+      </li>
+      <li class="stop stop-term">
+        <div class="stop-sign"><span class="stop-en">Life after go-live</span><span class="stop-ar" lang="ar">ما بعد التشغيل</span></div>
+        <ul class="after">
+          <li data-ar="دعم الأعطال">Incident support</li>
+          <li data-ar="تعديلات الإعداد">Configuration changes</li>
+          <li data-ar="تقارير ودورات عمل جديدة">New reports and workflows</li>
+          <li data-ar="مراقبة التكاملات">Integration monitoring</li>
+          <li data-ar="تحسين النظام">ERP optimisation</li>
+        </ul>
+      </li>
+    </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS: timetable ============ -->
+  <section class="section projects" id="projects" aria-labelledby="projects-title">
+    <header class="section-head">
+      <h2 id="projects-title" data-ar="Qcore شركة ناشئة، لكن خبرتها ليست كذلك.">Qcore is a young firm; its experience is not.</h2>
+      <p data-ar="أعمال نفّذها استشاريونا — ما قدّموه وكيف ساعد.">Work delivered by our consultants — what they did and how it helped.</p>
+    </header>
+
+    <div class="timetable" role="table" aria-label="Selected projects" data-ar-aria-label="مشاريع مختارة">
+      <div class="tt-row tt-head" role="row">
+        <span role="columnheader" data-ar="القطاع">Sector</span>
+        <span role="columnheader" data-ar="المنطقة">Region</span>
+        <span role="columnheader" data-ar="ما قدّمناه">What we did</span>
+      </div>
+      <div class="tt-row" role="row" style="--line:var(--trunk)">
+        <span role="cell" class="tt-sector" data-ar="التجزئة متعددة العلامات">Multi-brand retail</span>
+        <span role="cell" class="tt-region" data-ar="مصر">Egypt</span>
+        <span role="cell" data-ar="قدنا المشتريات وسلسلة الإمداد والمخزون في تنفيذ واسع لنظام ERP سحابي، مع قوالب ترحيل تجعل رصيد المخزون دقيقًا من اليوم الأول.">Led procurement, supply chain and inventory on a large cloud ERP rollout, with migration templates so stock is accurate on day one.</span>
+      </div>
+      <div class="tt-row" role="row" style="--line:var(--trunk)">
+        <span role="cell" class="tt-sector" data-ar="الأدوية">Pharmaceuticals</span>
+        <span role="cell" class="tt-region" data-ar="مصر">Egypt</span>
+        <span role="cell" data-ar="المخزون والمستودعات لبيئة خاضعة للرقابة، إلى جانب دورة المبيعات الكاملة والمالية — حتى نهاية الدعم المكثف.">Inventory and warehousing for a regulated environment, plus the end-to-end sales cycle and finance — through hypercare.</span>
+      </div>
+      <div class="tt-row" role="row" style="--line:var(--trunk)">
+        <span role="cell" class="tt-sector" data-ar="النفط والغاز">Oil &amp; gas</span>
+        <span role="cell" class="tt-region" data-ar="السعودية">KSA</span>
+        <span role="cell" data-ar="مشتريات وسلسلة إمداد وفق المتطلبات الإقليمية، ومالية مبنية على التوطين التنظيمي السعودي.">Procurement and supply chain tuned to regional requirements, and finance built around KSA regulatory localisation.</span>
+      </div>
+      <div class="tt-row" role="row" style="--line:var(--trunk)">
+        <span role="cell" class="tt-sector" data-ar="البنوك">Banking</span>
+        <span role="cell" class="tt-region" data-ar="مصر">Egypt</span>
+        <span role="cell" data-ar="الموارد البشرية الأساسية والرواتب على منصة آمنة ومتوافقة، مع لوحات مؤشرات لحظية للقوى العاملة.">Core HR and payroll on a secure, compliant platform, with real-time workforce dashboards for executives.</span>
+      </div>
+      <div class="tt-row" role="row" style="--line:var(--green)">
+        <span role="cell" class="tt-sector" data-ar="تجزئة متعددة الدول">Multi-country retail</span>
+        <span role="cell" class="tt-region" data-ar="الخليج">GCC</span>
+        <span role="cell" data-ar="ثماني واجهات تكامل بين منصة بيانات ونظام تخطيط ونظامي ERP. خفّضت إزالة التكرار الصفوف المُرسلة بأكثر من 35٪.">Eight interfaces between a data platform, a planning system and two ERPs. Deduplication cut delivered rows by over 35%.</span>
+      </div>
+      <div class="tt-row" role="row" style="--line:var(--red)">
+        <span role="cell" class="tt-sector" data-ar="التجزئة">Retail</span>
+        <span role="cell" class="tt-region" data-ar="السعودية">KSA</span>
+        <span role="cell" data-ar="مدفوعات العمل الإضافي ونظام للسلف والقروض بُني من الصفر، إلى جانب أتمتة إدارة الوظائف.">Overtime payments and a loans &amp; advances system built from scratch, plus automated position management.</span>
+      </div>
+    </div>
+
+    <figure class="clients">
+      <figcaption>
+        <strong data-ar="حيث نفّذ استشاريونا">Where our consultants have delivered</strong>
+        <span data-ar="نُفّذت هذه الأعمال من خلال استشاريينا بصفتهم أعضاء في فرق مشاريع لدى شركاء SAP. لم تكن Qcore solutions الطرف المتعاقد، ولا تعني الشعارات أي تأييد. المراجع متاحة عند الطلب.">Delivered by our consultants as members of SAP partner firms’ project teams. Qcore solutions was not the contracting party; logos do not imply endorsement. References on request.</span>
+      </figcaption>
+      <ul class="logo-row">
+        <li><img class="is-tall" src="../shared/clients/chalhoub.png" alt="Chalhoub Group"></li>
+        <li><img src="../shared/clients/dream2000.png" alt="Dream 2000"></li>
+        <li><img src="../shared/clients/kharafi.png" alt="Kharafi National"></li>
+        <li><img src="../shared/clients/egbank.png" alt="EG Bank"></li>
+        <li><img src="../shared/clients/artpharma.png" alt="Art Pharma"></li>
+        <li><img class="is-tall" src="../shared/clients/naft.png" alt="NAFT (Pure In)"></li>
+        <li><img src="../shared/clients/exceltravel.png" alt="Excel Travel"></li>
+        <li><img src="../shared/clients/extra.png" alt="eXtra"></li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="section team" id="team" aria-labelledby="team-title">
+    <header class="section-head">
+      <h2 id="team-title" data-ar="الأشخاص المذكورون هنا هم من ينفّذون مشروعك.">The people named here deliver your project.</h2>
+    </header>
+    <ol class="crew">
+      <li class="member" style="--line:var(--trunk)">
+        <div class="member-sign"><span class="m-en">Abdelrahman Ali Hussein</span><span class="m-ar" lang="ar">عبدالرحمن علي حسين</span></div>
+        <ul class="m-track"><li data-ar="المشتريات">Procurement</li><li data-ar="سلسلة الإمداد">Supply chain</li><li data-ar="المخزون">Inventory</li></ul>
+        <p class="m-cert" data-ar="معتمد من SAP · المصادر والمشتريات">SAP Certified · Sourcing &amp; procurement</p>
+      </li>
+      <li class="member" style="--line:var(--trunk)">
+        <div class="member-sign"><span class="m-en">Youssef Hossam</span><span class="m-ar" lang="ar">يوسف حسام</span></div>
+        <ul class="m-track"><li data-ar="المحاسبة">Accounting</li><li data-ar="مراقبة التكاليف">Cost control</li><li data-ar="التقارير المالية">Financial reporting</li></ul>
+        <p class="m-cert" data-ar="معتمد من SAP · S/4HANA Cloud">SAP Certified · S/4HANA Cloud</p>
+      </li>
+      <li class="member" style="--line:var(--trunk)">
+        <div class="member-sign"><span class="m-en">Moataz Mohamed Maghraby</span><span class="m-ar" lang="ar">معتز محمد مغربي</span></div>
+        <ul class="m-track"><li data-ar="الموارد البشرية الأساسية">Core HR</li><li data-ar="الرواتب">Payroll</li><li data-ar="الأداء">Performance</li></ul>
+        <p class="m-cert" data-ar="معتمد من SAP · SuccessFactors · الرواتب">SAP Certified · SuccessFactors · Payroll</p>
+      </li>
+      <li class="member" style="--line:var(--green)">
+        <div class="member-sign"><span class="m-en">Adham Tarek Hamdy</span><span class="m-ar" lang="ar">أدهم طارق حمدي</span></div>
+        <ul class="m-track"><li data-ar="الواجهات البرمجية">APIs</li><li data-ar="تحويل البيانات">Data transformation</li><li data-ar="التقارير والنماذج">Reports &amp; forms</li></ul>
+        <p class="m-cert" data-ar="معتمد من SAP · Integration Developer">SAP Certified · Integration Developer</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" data-ar="إجابات مباشرة، قبل المكالمة.">Straight answers, before the call.</h2>
+    <div class="qa">
+      <details>
+        <summary data-ar="هل ERPNext هو النظام المناسب لنا؟">Is ERPNext the right system for us?</summary>
+        <p data-ar="غالبًا، وليس دائمًا. سنخبرك في المكالمة الأولى إن كان مناسبًا لك — حتى لو لم يكن كذلك.">Often, not always. On the first call we’ll tell you whether it fits — including when it doesn’t.</p>
+      </details>
+      <details>
+        <summary data-ar="ماذا لو لم يغطِّ ERPNext شيئًا نحتاجه؟">What if ERPNext doesn’t cover something we need?</summary>
+        <p data-ar="نبدأ دائمًا بالإمكانات القياسية. وحين تبقى فجوة حقيقية نبنيها كتطبيق مستقل فوق النظام بدل تعديل نواته، لتظل التحديثات تعمل.">We use the standard first. Where a real gap remains, we build it as a proper app on top rather than changing core, so upgrades keep working.</p>
+      </details>
+      <details>
+        <summary data-ar="خلفية فريقكم SAP، فلماذا ERPNext؟">Your team’s background is SAP. Why ERPNext?</summary>
+        <p data-ar="المنهج واحد: المتطلبات، والإعداد، والترحيل، والاختبار، والتشغيل. ويمنح ERPNext الشركات النامية هذا الانضباط دون تكاليف تراخيص الأنظمة الكبرى.">The method is the same: requirements, configuration, migration, testing and go-live. ERPNext gives growing businesses that discipline without enterprise licence costs.</p>
+      </details>
+      <details>
+        <summary data-ar="مع من سنعمل فعليًا؟">Who will we actually work with?</summary>
+        <p data-ar="مع الاستشاريين المذكورين في هذه الصفحة. من يدير ورشة العمل هو من يُعدّ نظامك ويبقى معك حتى التشغيل.">The consultants named on this page. The person who runs your workshop configures your system and stays through go-live.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT: board here ============ -->
+  <section class="board-here" id="contact" aria-labelledby="contact-title">
+    <div class="platform" aria-hidden="true"><span class="platform-stop"></span></div>
+    <div class="bh-inner">
+      <div class="bh-copy">
+        <h2 id="contact-title" data-ar="لنراجع عملياتك معًا.">Let’s review your process together.</h2>
+        <p data-ar="للشركات النامية التي تحتاج إلى مالية ومخزون ومشتريات ومبيعات أو موارد بشرية منظمة — دون أعباء شركات التنفيذ الكبرى.">For growing businesses that need structured finance, inventory, procurement, sales or HR — without the overhead of a large implementation firm.</p>
+      </div>
+      <div class="bh-actions">
+        <a class="bh-link bh-wa" href="https://wa.me/201505716467">
+          <span class="bh-label" data-ar="واتساب">WhatsApp</span>
+          <span class="bh-value" dir="ltr">+20 150 571 6467</span>
+        </a>
+        <a class="bh-link" href="mailto:contact@qcore-solutions.com">
+          <span class="bh-label" data-ar="البريد الإلكتروني">Email</span>
+          <span class="bh-value" dir="ltr">contact@qcore-solutions.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="../../img/logo.png" alt="Qcore Solutions" width="400" height="149" class="foot-logo">
+  <span data-ar="تنفيذ ERPNext · برمجيات مخصصة · تكاملات">ERPNext implementation · custom software · integrations</span>
+  <span dir="ltr">qcore-solutions.com · © 2026</span>
+</footer>
+
+<script src="../shared/lang.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

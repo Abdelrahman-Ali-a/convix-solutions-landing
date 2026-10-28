@@ -3,7 +3,7 @@
 
   /* ---------------- theme ---------------- */
   var root = document.documentElement;
-  var THEME_KEY = "convix-theme";
+  var THEME_KEY = "qcore-theme";
   var themeBtn = document.getElementById("themeToggle");
 
   function storedTheme() {
@@ -241,7 +241,7 @@
       bodyLines.push("");
       bodyLines.push(message || "(no message entered)");
 
-      var mailto = "mailto:hello@convixsolutions.com" +
+      var mailto = "mailto:business.abdelrahmanalisaleh@gmail.com" +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(bodyLines.join("\n"));
 
